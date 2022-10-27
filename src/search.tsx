@@ -1,5 +1,6 @@
 import { IpGeoContext } from 'contexts/ip.geo';
-import React, { createRef, useContext } from 'react';
+import IpInput from 'ip.input';
+import React, { useContext, useState } from 'react';
 import { fetchLocation } from 'reducers/ip.geo.thunks';
 import styled from 'styled-components';
 
@@ -10,7 +11,6 @@ const Container = styled.div`
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: center;
 	padding-top: 2rem;
 `;
@@ -30,17 +30,6 @@ const Wrapper = styled.form`
 	align-items: center;
 `;
 
-const Input = styled.input`
-	border-radius: 0.5rem 0rem 0rem 0.5rem;
-	height: 100%;
-	width: 35%;
-	outline: none;
-	border: none;
-	font-size: 1rem;
-	padding-left: 1rem;
-	padding-right: 1rem;
-`;
-
 const Submit = styled.button`
 	border-radius: 0rem 0.5rem 0.5rem 0rem;
 	height: 100%;
@@ -55,22 +44,39 @@ const Submit = styled.button`
 	}
 `;
 
+const Input = styled(IpInput)`
+	border-radius: 0.5rem 0rem 0rem 0.5rem;
+	height: 100%;
+	width: 35%;
+	outline: none;
+	border: none;
+	font-size: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+`;
+
 const Search = () => {
+	//89.55.54.69 testo lungo
+
 	const { dispatch } = useContext(IpGeoContext);
-	const inputRef = createRef<HTMLInputElement>();
+	const [searchQuery, setSearchQuery] = useState<string | null>(null);
 
 	const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
 		e.preventDefault();
-		if (inputRef.current) {
-			dispatch((dispatch) => fetchLocation(dispatch, inputRef.current!.value));
+		if (searchQuery) {
+			dispatch((dispatch) => fetchLocation(dispatch, searchQuery));
 		}
+	};
+
+	const hnaldeChangeSearchQuery: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+		setSearchQuery(e.target.value);
 	};
 
 	return (
 		<Container>
 			<Title>IP Address Tracker</Title>
 			<Wrapper onSubmit={handleSubmit}>
-				<Input ref={inputRef} placeholder='Search for any IP address or domain' />
+				<Input onChange={hnaldeChangeSearchQuery} />
 				<Submit></Submit>
 			</Wrapper>
 		</Container>

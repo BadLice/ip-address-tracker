@@ -29,7 +29,6 @@ const Container = styled.main`
 	flex-direction: column;
 	height: 100vh;
 	width: 100%;
-	background-color: red;
 `;
 
 const App = () => {
