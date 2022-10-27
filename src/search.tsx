@@ -13,6 +13,10 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding-top: 2rem;
+
+	@media only screen and (max-width: 850px) {
+		height: 50%;
+	}
 `;
 
 const Title = styled.h1`
@@ -32,7 +36,7 @@ const Wrapper = styled.form`
 
 const Submit = styled.button`
 	border: none;
-	border-radius: 0rem 0.5rem 0.5rem 0rem;
+	border-radius: 0rem 0.8rem 0.8rem 0rem;
 	height: 100%;
 	width: 4%;
 	background-color: black;
@@ -47,10 +51,14 @@ const Submit = styled.button`
 	&:active {
 		background-color: hsl(0, 0%, 17%);
 	}
+
+	@media only screen and (max-width: 850px) {
+		width: 12%;
+	}
 `;
 
 const Input = styled(IpInput)`
-	border-radius: 0.5rem 0rem 0rem 0.5rem;
+	border-radius: 0.8rem 0rem 0rem 0.8rem;
 	height: 100%;
 	width: 35%;
 	outline: none;
@@ -58,6 +66,10 @@ const Input = styled(IpInput)`
 	font-size: 1rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
+
+	@media only screen and (max-width: 850px) {
+		width: 78%;
+	}
 `;
 
 const Search = () => {

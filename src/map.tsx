@@ -14,7 +14,6 @@ const Container = styled.div`
 const markerIcon = new L.Icon({
 	iconUrl: './images/icon-location.svg',
 	iconRetinaUrl: './images/icon-location.svg',
-	popupAnchor: [-0, -0],
 	iconSize: [11 * 4, 14 * 4],
 });
 
@@ -54,6 +53,7 @@ const withMapContainer =
 					zoom={13}
 					scrollWheelZoom={true}
 					style={{ zIndex: 1 }}
+					zoomControl={false}
 				>
 					<Component {...(props as P)} />
 				</MapContainer>

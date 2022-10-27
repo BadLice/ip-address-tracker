@@ -15,6 +15,16 @@ const Container = styled.div`
 	padding-top: 2rem;
 	z-index: 2;
 	box-shadow: 5px 5px 6px -5px #adadad;
+
+	@media only screen and (max-width: 850px) {
+		height: 35%;
+		width: 90%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-top: 1rem;
+		left: 5%;
+	}
 `;
 
 const Label = styled.div`
@@ -25,6 +35,10 @@ const Label = styled.div`
 	font-weight: bold;
 	letter-spacing: 0.1rem;
 	font-size: 0.7rem;
+
+	@media only screen and (max-width: 850px) {
+		height: 30%;
+	}
 `;
 
 const Text = styled.div`
@@ -36,6 +50,11 @@ const Text = styled.div`
 	font-size: 1.5rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
+
+	@media only screen and (max-width: 850px) {
+		font-size: 1.2rem;
+		width: 100%;
+	}
 `;
 
 const Item = styled.div`
@@ -44,12 +63,22 @@ const Item = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding-left: 1.5rem;
+
+	@media only screen and (max-width: 850px) {
+		width: 100%;
+		padding-left: 0;
+		text-align: center;
+	}
 `;
 
 const Divider = styled.div`
 	width: 1px;
 	height: 75%;
 	background-color: hsl(0, 0%, 59%);
+
+	@media only screen and (max-width: 850px) {
+		display: none;
+	}
 `;
 
 //TODO: create nice error message
