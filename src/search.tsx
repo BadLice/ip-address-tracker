@@ -79,7 +79,10 @@ const Search = () => {
 		<Container>
 			<Title>IP Address Tracker</Title>
 			<Wrapper onSubmit={handleSubmit}>
-				<Input onChange={hnaldeChangeSearchQuery} />
+				<Input
+					onChange={hnaldeChangeSearchQuery}
+					placeholder='Search for any IP address'
+				/>
 				<Submit />
 			</Wrapper>
 		</Container>
