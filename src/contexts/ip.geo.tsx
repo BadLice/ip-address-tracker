@@ -1,5 +1,6 @@
 import { createContext, useCallback, useReducer } from 'react';
 import ipGeoReducer, { IpGeoAction, IpGeoState, IpGeoThunk } from 'reducers/ip.geo';
+import getAsyncDispatch from './getAsyncDispatch';
 
 interface IpGeoProviderProps {
 	children?: React.ReactNode;
@@ -17,13 +18,10 @@ export const IpGeoContext = createContext<{
 export const IpGeoProvider = ({ children }: IpGeoProviderProps) => {
 	const [state, dispatch] = useReducer(ipGeoReducer, {});
 
-	const asyncDispatch: AsyncDispatchType = useCallback((action: IpGeoAction | IpGeoThunk) => {
-		if (typeof action === 'function') {
-			action(dispatch);
-		} else {
-			dispatch(action);
-		}
-	}, []);
+	const asyncDispatch: AsyncDispatchType = useCallback(
+		getAsyncDispatch<AsyncDispatchType, IpGeoAction>(dispatch),
+		[]
+	);
 
 	return (
 		<>
