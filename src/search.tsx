@@ -31,6 +31,7 @@ const Wrapper = styled.form`
 `;
 
 const Submit = styled.button`
+	border: none;
 	border-radius: 0rem 0.5rem 0.5rem 0rem;
 	height: 100%;
 	width: 4%;
@@ -41,6 +42,10 @@ const Submit = styled.button`
 
 	&::before {
 		content: url('./images/icon-arrow.svg');
+	}
+
+	&:active {
+		background-color: hsl(0, 0%, 17%);
 	}
 `;
 
@@ -77,7 +82,7 @@ const Search = () => {
 			<Title>IP Address Tracker</Title>
 			<Wrapper onSubmit={handleSubmit}>
 				<Input onChange={hnaldeChangeSearchQuery} />
-				<Submit></Submit>
+				<Submit />
 			</Wrapper>
 		</Container>
 	);
