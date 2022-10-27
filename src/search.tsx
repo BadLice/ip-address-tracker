@@ -61,8 +61,6 @@ const Input = styled(IpInput)`
 `;
 
 const Search = () => {
-	//89.55.54.69 testo lungo
-
 	const { dispatch } = useContext(IpGeoContext);
 	const [searchQuery, setSearchQuery] = useState<string | null>(null);
 

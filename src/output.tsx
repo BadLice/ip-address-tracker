@@ -34,6 +34,8 @@ const Text = styled.div`
 	color: hsl(0, 0%, 17%);
 	font-weight: 500;
 	font-size: 1.5rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
 `;
 
 const Item = styled.div`
@@ -41,7 +43,6 @@ const Item = styled.div`
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-
 	padding-left: 1.5rem;
 `;
 
@@ -53,6 +54,8 @@ const Divider = styled.div`
 
 //TODO: create nice error message
 //TODO: create loader when result empty
+
+//TODO 89.55.54.69 testo lungo
 
 const Output = () => {
 	const { state } = useContext(IpGeoContext);
@@ -75,7 +78,7 @@ const Output = () => {
 					<Divider />
 					<Item>
 						<Label>timezione</Label>
-						<Text>UTC {state.timezone}</Text>
+						<Text>{state.timezone}</Text>
 					</Item>
 					<Divider />
 					<Item>
