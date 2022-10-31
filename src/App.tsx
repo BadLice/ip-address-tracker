@@ -31,6 +31,8 @@ const Container = styled.main`
 	width: 100%;
 `;
 
+//TODO: prevent user from spamming api requests
+
 const App = () => {
 	const { dispatch } = useContext(IpGeoContext);
 
