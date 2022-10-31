@@ -1,4 +1,5 @@
 import { IpGeoContext } from 'contexts/ip.geo';
+import { Loader } from 'loader';
 import { useContext } from 'react';
 import styled from 'styled-components';
 
@@ -91,7 +92,7 @@ const Output = () => {
 
 	return (
 		<Container>
-			{state.query && state.status === 'success' ? (
+			{state.query && state.status === 'success' && false ? (
 				<>
 					<Item>
 						<Label>ip address</Label>
@@ -115,10 +116,10 @@ const Output = () => {
 						<Text>{state.isp}</Text>
 					</Item>
 				</>
-			) : state.status === 'fail' ? (
+			) : state.status === 'fail' && false ? (
 				'Error!'
 			) : (
-				'Loading...'
+				<Loader />
 			)}
 		</Container>
 	);
