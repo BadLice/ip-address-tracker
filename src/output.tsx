@@ -1,4 +1,5 @@
 import { IpGeoContext } from 'contexts/ip.geo';
+import { Error } from 'error';
 import { Loader } from 'loader';
 import { useContext } from 'react';
 import styled from 'styled-components';
@@ -82,11 +83,6 @@ const Divider = styled.div`
 	}
 `;
 
-//TODO: create nice error message
-//TODO: create loader when result empty
-
-//TODO 89.55.54.69 testo lungo
-
 const Output = () => {
 	const { state } = useContext(IpGeoContext);
 
@@ -116,8 +112,8 @@ const Output = () => {
 						<Text>{state.isp}</Text>
 					</Item>
 				</>
-			) : state.status === 'fail' && false ? (
-				'Error!'
+			) : state.status === 'fail' || true ? (
+				<Error />
 			) : (
 				<Loader />
 			)}
