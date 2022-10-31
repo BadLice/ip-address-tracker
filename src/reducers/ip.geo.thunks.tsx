@@ -6,13 +6,15 @@ export type IpGEoFetchLocationThunk = (
 	ip?: string
 ) => void;
 
+const PROTOCOL = process.env.REACT_APP_ENV === 'dev' ? 'http' : 'https';
+
 export const fetchLocation: IpGEoFetchLocationThunk = async (dispatch, ip) => {
 	try {
 		if (ip) {
-			const { data } = await axios.get(`http://ip-api.com/json/${ip || ''}`);
+			const { data } = await axios.get(`${PROTOCOL}://ip-api.com/json/${ip || ''}`);
 			dispatch({ type: 'SEARCH', payload: data });
 		} else {
-			const { data: myIp } = await axios.get(`http://icanhazip.com/`);
+			const { data: myIp } = await axios.get(`${PROTOCOL}://icanhazip.com/`);
 			fetchLocation(dispatch, myIp);
 		}
 	} catch (e) {
