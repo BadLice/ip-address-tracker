@@ -88,7 +88,7 @@ const Output = () => {
 
 	return (
 		<Container>
-			{state.query && state.status === 'success' && false ? (
+			{state.query && state.status === 'success' ? (
 				<>
 					<Item>
 						<Label>ip address</Label>
@@ -112,7 +112,7 @@ const Output = () => {
 						<Text>{state.isp}</Text>
 					</Item>
 				</>
-			) : state.status === 'fail' || true ? (
+			) : state.status === 'fail' ? (
 				<Error />
 			) : (
 				<Loader />
