@@ -95,7 +95,7 @@ const Search = () => {
 					onChange={hnaldeChangeSearchQuery}
 					placeholder='Search for any IP address'
 				/>
-				<Submit />
+				<Submit aria-label='Submit' />
 			</Wrapper>
 		</Container>
 	);
